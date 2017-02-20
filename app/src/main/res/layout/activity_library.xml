@@ -6,4 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".Library">
 
+    <TextView
+        android:id="@+id/red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:text="@string/left_text"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/purple"
+        android:text="@string/below_left_text"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/red"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/pink"
+        android:text="@string/right_text"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/center_text"
+        android:layout_centerInParent="true"
+        android:background="@color/deep_purple"
+        android:padding="10dp"/>
+    <TextView
+        android:id="@+id/indigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bottom_center_text"
+        android:background="@color/indigo"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/above_bottom_center_text"
+        android:background="@color/blue"
+        android:layout_above="@+id/indigo"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"/>
+
 </RelativeLayout>
