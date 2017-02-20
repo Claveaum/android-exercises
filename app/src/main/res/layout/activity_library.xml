@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding"
-        android:saveEnabled="false"
+        android:saveEnabled="true"
         android:hint="@string/hint_message"/>
 
 </LinearLayout>
