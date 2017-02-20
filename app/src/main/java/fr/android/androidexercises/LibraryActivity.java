@@ -1,5 +1,6 @@
 package fr.android.androidexercises;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,7 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class LibraryActivity extends AppCompatActivity {
-
+    public final static String EXTRA_MESSAGE = "fr.android.androidexercises.message";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,13 +19,15 @@ public class LibraryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button openButton = (Button) findViewById(R.id.openButton);
+        final Button openButton = (Button) findViewById(R.id.openButton);
 
         openButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Replace with startActivity() to start BookActivity
-                Toast.makeText(LibraryActivity.this, R.string.toast_todo, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
+                intent.putExtra(EXTRA_MESSAGE,"Bonjour");
+                startActivity(intent);
             }
         });
     }
