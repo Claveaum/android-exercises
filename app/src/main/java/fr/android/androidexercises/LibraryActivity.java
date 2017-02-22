@@ -1,5 +1,6 @@
 package fr.android.androidexercises;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,6 +28,9 @@ public class LibraryActivity extends AppCompatActivity {
 
         final TextView messageTextView =
                 (TextView) findViewById(R.id.messageTextView);
+
+        Intent intent = new Intent(this, BigJobService.class);
+        startService(intent);
 
         OkHttpClient client = new OkHttpClient();
 
