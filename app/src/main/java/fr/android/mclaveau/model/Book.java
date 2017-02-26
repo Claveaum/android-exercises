@@ -86,6 +86,14 @@ public class Book implements Parcelable {
         dest.writeStringList(synopsis);
     }
 
+    public String getSynopsisAgregate(){
+        StringBuilder result = new StringBuilder();
+        for (String text : getSynopsis()){
+            result.append(text);
+        }
+        return result.toString();
+    }
+
     @Override
     public int describeContents() {
         return 0;

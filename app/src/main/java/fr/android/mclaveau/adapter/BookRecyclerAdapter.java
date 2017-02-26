@@ -1,5 +1,6 @@
 package fr.android.mclaveau.adapter;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import fr.android.mclaveau.R;
+import fr.android.mclaveau.activity.LibraryActivity;
+import fr.android.mclaveau.fragment.DetailViewFragment;
 import fr.android.mclaveau.model.Book;
 import fr.android.mclaveau.view.BookItemView;
 
@@ -18,6 +21,7 @@ import fr.android.mclaveau.view.BookItemView;
 public class BookRecyclerAdapter extends RecyclerView.Adapter {
     private final LayoutInflater inflater;
     private final List<Book> books;
+    public DetailViewFragment detailViewFragment;
 
     public BookRecyclerAdapter(LayoutInflater inflater, List<Book> books){
         this.inflater = inflater;
@@ -29,8 +33,20 @@ public class BookRecyclerAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        BookItemView bookItemView = (BookItemView) holder.itemView;
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        final BookItemView bookItemView = (BookItemView) holder.itemView;
+        bookItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Bundle arguments = new Bundle();
+                    arguments.putParcelable(DetailViewFragment.BOOK_PARCELABLE_ID, books.get(position));
+                    detailViewFragment = new DetailViewFragment();
+                    detailViewFragment.setArguments(arguments);
+                    ((LibraryActivity)(v.getContext())).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.detail_frame, detailViewFragment)
+                            .commit();
+            }
+        });
         bookItemView.bindView(books.get(position));
     }
 

@@ -13,7 +13,7 @@ import fr.android.mclaveau.R;
 
 public class BookItemView extends LinearLayout {
 
-    private TextView title, price;
+    private TextView title;
 
     private ImageView cover;
 
@@ -33,13 +33,11 @@ public class BookItemView extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         title = (TextView) findViewById(R.id.titleTextView);
-        price = (TextView) findViewById(R.id.priceTextView);
         cover = (ImageView) findViewById(R.id.coverImageView);
     }
 
     public void bindView(Book book) {
         title.setText(book.getTitle());
-        price.setText(String.valueOf(book.getPrice()));
         Glide.with(getContext()).load(book.getCover()).fitCenter().crossFade().into(cover);
     }
 }
